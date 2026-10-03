@@ -1,23 +1,38 @@
-# Cloudflare Workers Static Assets 会读这个文件，列出的内容不会上传。
+# Cloudflare Workers Static Assets 会读这个文件：列出的内容不会上传到线上。
 # 目的：仓库里保留这些文件（版本管理、随时可启用），但不让访客直接访问到。
+#
+# ⚠️ 这个文件按**文件系统**过滤，和 .gitignore 无关 ——
+#    本地存在的东西如果没在这里列出，就会被一起上传。所以下面写得很全。
 
-# 仓库说明与部署配置
-README.md
+# ── Git 与依赖（wrangler 通常默认忽略，显式写出更保险）──
+.git/
 .gitignore
+.gitattributes
+node_modules/
+
+# ── 仓库说明与部署配置 ──
+README.md
 .assetsignore
 wrangler.jsonc
 
-# 开发工具
+# ── 开发工具（生成 favicon、分享卡、调海鸥姿态用）──
 og-card.html
 _gulltest.html
 _icon32.html
 _icon180.html
 
-# 调研资料
-docs/
+# ── 开发截图与设计对比页（约 3 MB，不属于站点）──
+preview-*.png
+*-variants.html
+*-variants.png
+gull-flap.png
 
-# 三个还没接入菜单的页面：内容仍是占位文案，
-# 填好内容、加回菜单之后，把下面三行删掉即可上线。
+# ── 调研资料与第三方内容 ──
+docs/
+skills/
+
+# ── 三个还没接入菜单的页面 ──
+# 内容仍是占位文案。填好内容、把链接加回菜单之后，删掉下面三行即可上线。
 projects.html
 stack.html
 guestbook.html
