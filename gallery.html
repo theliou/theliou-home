@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>相册 · 栗鸥 Lio</title>
+<meta name="description" content="栗鸥 Lio 的相册。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="栗鸥 Lio">
+<meta property="og:title" content="相册 · 栗鸥 Lio">
+<meta property="og:description" content="栗鸥 Lio 拍的照片。">
+<meta property="og:url" content="https://你的域名/gallery.html">
+<meta property="og:image" content="https://你的域名/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@700&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">栗鸥 Lio</a>
+    <nav aria-label="页面导航">
+      <a href="index.html">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html" aria-current="page">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="pageband band-gallery">
+    <div class="gulls">
+      <div class="gull gull--deco" aria-hidden="true" style="--x:68%;--y:26%;--s:.9;--d:13s;--dx:13px;--dy:8px"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg></div>
+      <div class="gull gull--deco" aria-hidden="true" style="--x:84%;--y:50%;--s:.62;--d:11s;--dx:-10px;--dy:7px"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg></div>
+    </div>
+
+    <div class="wrap band-inner">
+      <h1>相册</h1>
+      <p class="lede">随手拍的天空和云，多半是抬头看到的。</p>
+    </div>
+  </div>
+
+  <div class="wrap pagebody">
+    <section>
+      <!-- TODO（给未来的你）：加照片时，把下面这个空状态换成 <div class="album">，
+           每张一个 figure。⚠️ img 一定要写 width 和 height（原始像素），
+           否则图片加载完页面会跳一下（CLS），这是图片最常见的性能问题。
+
+           <div class="album">
+             <figure>
+               <img src="assets/photos/01.jpg" width="1600" height="1200" loading="lazy" alt="描述这张照片">
+               <figcaption>拍摄地点 · 2026-10</figcaption>
+             </figure>
+           </div>
+
+           照片文件建议先压到 1600px 宽、JPEG 质量 80 左右，
+           一张大约 150–300 KB。丢给我我来处理。 -->
+      <p class="empty">相册还是空的。</p>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="footnav" aria-label="页脚导航">
+      <a href="index.html">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html" aria-current="page">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+    <div class="footrow">
+      <p>© <time datetime="2026">2026</time> 栗鸥 Lio</p>
+      <p>纯静态页面，无追踪脚本、无 Cookie。</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

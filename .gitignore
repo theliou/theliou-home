@@ -1,0 +1,14 @@
+# 开发截图与设计对比页（体积大，不属于站点）
+preview-*.png
+*-variants.png
+gull-flap.png
+*-variants.html
+
+# 第三方 skill 原文存档（版权归各作者，只作本地参考，不随仓库分发）
+skills/
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

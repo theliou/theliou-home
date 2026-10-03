@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="栗鸥 Lio">
+  <!--
+    favicon 的唯一考验是 16px 下还认不认得出。
+    这一版把"翼尖拉高、中点压低"（凹口加深），笔画也从 7.5 加到 8.5 ——
+    否则 16px 时两翼之间那个凹口会被填平，整只鸟糊成一个白疙瘩。
+    再极端一点（接近 V 形）在 16px 更清楚，但放大后会变成字母 M，所以停在这里。
+    底用深蓝方块而不是透明：浅色和深色标签栏上都看得见。
+  -->
+  <rect width="64" height="64" rx="13" fill="#0A1E45"/>
+  <path d="M8 40 Q18 15 32 32 Q46 15 56 40"
+        fill="none" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round"/>
+</svg>

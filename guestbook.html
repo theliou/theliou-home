@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>留言 · 栗鸥 Lio</title>
+<meta name="description" content="给栗鸥 Lio 留言。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="栗鸥 Lio">
+<meta property="og:title" content="留言 · 栗鸥 Lio">
+<meta property="og:description" content="用 GitHub 账号登录即可留言，内容公开可查。">
+<meta property="og:url" content="https://你的域名/guestbook.html">
+<meta property="og:image" content="https://你的域名/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@700&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">栗鸥 Lio</a>
+    <nav aria-label="页面导航">
+      <a href="index.html">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 头图压在云顶上（.band-guestbook） -->
+  <div class="pageband band-guestbook">
+    <div class="gulls">
+      <div class="gull gull--deco" aria-hidden="true" style="--x:72%;--y:28%;--s:.9;--d:12s;--dx:12px;--dy:7px"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg></div>
+      <div class="gull gull--deco" aria-hidden="true" style="--x:86%;--y:50%;--s:.62;--d:10s;--dx:-10px;--dy:8px"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg></div>
+    </div>
+
+    <div class="wrap band-inner">
+      <h1>留言</h1>
+      <p class="lede">用 GitHub 账号登录即可留言，内容公开可查。</p>
+    </div>
+  </div>
+
+  <div class="wrap pagebody">
+    <section>
+      <!-- TODO：启用留言（giscus，零后端，静态站零改造）
+           1. 把整个站点放进一个公开 GitHub 仓库，并开启该仓库的 Discussions
+           2. 安装 giscus App：https://github.com/apps/giscus
+           3. 到 https://giscus.app/zh-CN 填仓库名，选择 Discussion 分类
+              （建议 Announcements：只有你能发起新讨论、别人只能评论，天然免广告）
+           4. 把生成的 <script> 取消注释并替换下面的 TODO 值
+           5. 建议把 "输入位置" 设为特定页面，避免同一讨论串被复用
+
+      <script src="https://giscus.app/client.js"
+              data-repo="你的用户名/你的仓库"
+              data-repo-id="TODO"
+              data-category="Announcements"
+              data-category-id="TODO"
+              data-mapping="pathname"
+              data-strict="1"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="top"
+              data-theme="preferred_color_scheme"
+              data-lang="zh-CN"
+              data-loading="lazy"
+              crossorigin="anonymous"
+              async>
+      </script>
+      -->
+
+      <p class="todo">留言区未启用：按上面的注释填好 giscus 配置后，把注释打开。</p>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="footnav" aria-label="页脚导航">
+      <a href="index.html">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+    <div class="footrow">
+      <p>© <time datetime="2026">2026</time> 栗鸥 Lio</p>
+      <p>纯静态页面，无追踪脚本、无 Cookie。</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

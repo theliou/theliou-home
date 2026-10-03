@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>海鸥扇翅分解</title>
+<link rel="stylesheet" href="site.css">
+<style>
+  /* 这个页面只验证扇翅：关掉航迹动画，把扇翅定格在 8 个相位上铺成一排。
+     关键帧来自真实的 site.css，不是另抄一份。 */
+  html,body{ margin:0; background:#0A1E45; }
+  .strip{ display:flex; gap:6px; padding:30px 22px; align-items:center; }
+  .gull{
+    position:static; left:auto; top:auto; transform:none;
+    width:150px; color:#fff; cursor:default; filter:none;
+    animation:none !important;   /* 关掉入场动画，否则截屏时 opacity 还是 0 */
+  }
+  .gull svg{ animation:none; }                     /* 关掉航迹 */
+  .gull svg g{
+    animation-duration:2.4s !important;
+    animation-delay:0s !important;
+    animation-play-state:paused !important;         /* 定格 */
+  }
+  .gull:nth-child(1) svg g{ animation-delay:0s    !important; }
+  .gull:nth-child(2) svg g{ animation-delay:-.3s  !important; }
+  .gull:nth-child(3) svg g{ animation-delay:-.6s  !important; }
+  .gull:nth-child(4) svg g{ animation-delay:-.9s  !important; }
+  .gull:nth-child(5) svg g{ animation-delay:-1.2s !important; }
+  .gull:nth-child(6) svg g{ animation-delay:-1.5s !important; }
+  .gull:nth-child(7) svg g{ animation-delay:-1.8s !important; }
+  .gull:nth-child(8) svg g{ animation-delay:-2.1s !important; }
+  .lbl{ color:rgba(255,255,255,.5); font:12px/1 monospace; padding-left:22px; }
+</style>
+</head>
+<body>
+  <p class="lbl">0s &nbsp; -0.3 &nbsp; -0.6 &nbsp; -0.9 &nbsp; -1.2 &nbsp; -1.5 &nbsp; -1.8 &nbsp; -2.1s &nbsp;(一个 2.4s 扇翅周期)</p>
+  <div class="strip">
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+    <button class="gull" type="button"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></button>
+  </div>
+</body>
+</html>

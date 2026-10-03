@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>项目 · 栗鸥 Lio</title>
+<meta name="description" content="栗鸥 Lio 的项目：每个项目写清问题、我的角色、做法和可验证的结果。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="栗鸥 Lio">
+<meta property="og:title" content="项目 · 栗鸥 Lio">
+<meta property="og:description" content="做过的三个项目，每个都按「问题 → 我的角色 → 做法 → 结果」写。">
+<meta property="og:url" content="https://你的域名/projects.html">
+<meta property="og:image" content="https://你的域名/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@700&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">栗鸥 Lio</a>
+    <nav aria-label="页面导航">
+      <a href="index.html">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 头图：与首页同一张照片，只是裁切不同（改 .band-projects 的变量即可微调） -->
+  <div class="pageband band-projects">
+    <div class="gulls">
+      <div class="gull gull--deco" aria-hidden="true" style="--x:76%;--y:24%;--s:.85;--d:11s;--dx:12px;--dy:7px"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg></div>
+      <div class="gull gull--deco" aria-hidden="true" style="--x:88%;--y:44%;--s:.6;--d:13s;--dx:-10px;--dy:6px"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg></div>
+    </div>
+    <!-- 这只由滚动驱动：一开始往下滚它就飞走，滚回顶部又飞回来 -->
+    <div class="band-gull" aria-hidden="true"><svg viewBox="0 0 64 30"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg></div>
+
+    <div class="wrap band-inner">
+      <h1>项目</h1>
+      <p class="lede">做过的三个项目，每个都按「问题 → 我的角色 → 做法 → 结果」写。</p>
+    </div>
+  </div>
+
+  <div class="wrap pagebody">
+    <section>
+      <div class="work">
+
+        <!-- 建议：3 个项目比 10 个更有说服力。宁缺毋滥，凑数的项目会拉低整体。 -->
+        <article>
+          <h2 class="todo">项目一的名字</h2>
+          <dl>
+            <dt>问题</dt><dd class="todo">它要解决什么？谁会遇到这个问题？</dd>
+            <dt>我的角色</dt><dd class="todo">你负责哪一部分（独立完成 / 三人小组里做后端）</dd>
+            <dt>做法</dt><dd class="todo">用了什么技术、关键的技术决策是什么</dd>
+            <dt>结果</dt><dd class="todo">可验证的结果：跑通的功能、性能数字、用户数、获奖、课程评分。<strong>没有数字就写清实际做到了哪一步，不要编。</strong></dd>
+          </dl>
+          <div class="links"><a class="todo" href="#">源码 / 在线演示</a></div>
+        </article>
+
+        <article>
+          <h2 class="todo">项目二的名字</h2>
+          <dl>
+            <dt>问题</dt><dd class="todo">…</dd>
+            <dt>我的角色</dt><dd class="todo">…</dd>
+            <dt>做法</dt><dd class="todo">…</dd>
+            <dt>结果</dt><dd class="todo">…</dd>
+          </dl>
+          <div class="links"><a class="todo" href="#">源码 / 在线演示</a></div>
+        </article>
+
+        <article>
+          <h2 class="todo">项目三的名字</h2>
+          <dl>
+            <dt>问题</dt><dd class="todo">…</dd>
+            <dt>我的角色</dt><dd class="todo">…</dd>
+            <dt>做法</dt><dd class="todo">…</dd>
+            <dt>结果</dt><dd class="todo">…</dd>
+          </dl>
+          <div class="links"><a class="todo" href="#">源码 / 在线演示</a></div>
+        </article>
+
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="footnav" aria-label="页脚导航">
+      <a href="index.html">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+    <div class="footrow">
+      <p>© <time datetime="2026">2026</time> 栗鸥 Lio</p>
+      <p>纯静态页面，无追踪脚本、无 Cookie。</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

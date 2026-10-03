@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  栗鸥 Lio · 首页（整屏照片 hero，不滚动）
+  ============================================================
+
+  这一页只做一件事：让访客在一屏之内记住"栗鸥"这个人，并且知道站里还有什么。
+  所以它没有正文，hero 直接吃掉整个视口高度。首屏分三段：
+    上方 = 名字（136px）+ 一行欢迎语
+    中部 = 天空、云和海鸥
+    下方 = 实线 + 四栏站点索引（项目 / 关于 / 技术栈 / 联系）
+
+  【待填】搜索 待填 只有一处：首屏那句欢迎语。
+         一句话说清「你是谁 + 在做什么 / 想要什么」，别写"热爱技术"这类空话。
+
+  背景图用整张照片铺满（background-size: cover，任何屏幕都不会留白）。
+  换图只改 site.css 顶部的 --hero-img 一行，三版都在 assets/ 里：
+    assets/hero-sky-clean.jpg   ✅ 当前使用：整图，画面中间那句英文已修掉（1920×1080，77 KB）
+    assets/hero-sky.jpg         原图（含英文 "BE JOYFUL ALWAYS"）
+    assets/hero-sky-clouds.jpg  只留云层带（1920×447，41 KB）
+
+  【海鸥】纯装饰性的互动彩蛋：点一下会飞走，约 0.9 秒后换个位置飞回来。
+    实现是「真 button + CSS 变量定位 + 原生 JS」，没有依赖。
+    加一只海鸥：复制一个 <button class="gull">，改行内的 --x/--y/--s/--d/--dx/--dy。
+    想删掉整个互动：把 <div class="gulls"> 整块和页面底部 <script> 一起删掉即可。
+
+  【为什么这么设计】（对照 Anthropic frontend-design 的 AI 味清单）
+    · 无全大写 tracked 眉标、无装饰性 01/02/03、链接不加 → 箭头
+    · 「大胆只花一处」= 首屏这行大字，其余交给照片
+    · 照片上的白字靠一层渐变遮罩保证可读，不是靠运气
+    · 海鸥只有一种动效（慢速漂浮）＋ 一个由用户触发的反馈（点击飞走），
+      不是"每张卡都 hover 一下"那种散点式动效
+
+  【部署到 Cloudflare】（2026 现状：新项目用 Workers，别新建 Pages）
+    站点文件统一放进 public/ 再部署，别把 skills/ 和预览图传上去：
+      public/index.html  public/*.html  public/site.css  public/assets/
+      wrangler.jsonc: { "name": "lio-site", "compatibility_date": "2026-10-01",
+                        "assets": { "directory": "./public" } }
+      npx wrangler deploy
+    → 静态请求免费且不限量；自定义域名在控制台 Custom domains 一键接入
+
+  【图片版权提醒】
+    这张壁纸来自网络（文件名带「哲风壁纸」）。个人主页是公开站点，
+    用来源不明的图有风险；换成自己拍的 / Unsplash 等可商用图更稳妥。
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>栗鸥 Lio</title>
+<meta name="description" content="栗鸥 Lio —— 计算机专业在读学生的个人主页。">
+<!-- 分享卡片：发到微信 / QQ / X / Discord 时显示的那张大图。
+     ⚠️ og:image 和 og:url 必须是绝对网址，相对路径平台抓不到；
+     上线后把 你的域名 全部替换成真实域名。 -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="栗鸥 Lio">
+<meta property="og:title" content="栗鸥 Lio">
+<meta property="og:description" content="计算机专业在读学生的个人主页。">
+<meta property="og:url" content="https://你的域名/">
+<meta property="og:image" content="https://你的域名/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="栗鸥 Lio —— 蓝天白云下的个人主页分享卡">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero-sky-clean.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@700&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="home">
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">栗鸥 Lio</a>
+    <nav aria-label="页面导航">
+      <a href="index.html" aria-current="page">首页</a>
+      <a href="articles.html">文章</a>
+      <a href="gallery.html">相册</a>
+      <a href="about.html">关于</a>
+      <a href="contact.html">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="home">
+  <div class="hero">
+
+    <!-- 海鸥层：每只都是真的 <button>，所以键盘也能触发。
+         位置/大小/漂浮幅度全部由行内 CSS 变量控制，想加一只就复制一行改数值。
+         --x/--y 位置  --s 大小倍数  --d 漂浮周期  --dx/--dy 漂浮幅度
+         第一只带 gull--lead，是右侧那只主角：尺寸随视口缩放，飞走后只在自己那片天空里换位置。 -->
+    <div class="gulls" role="group" aria-label="可互动的海鸥">
+      <button class="gull gull--lead" type="button" aria-label="海鸥" style="--x:83%;--y:33%;--d:17s;--dx:20px;--dy:12px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:15%;--y:50%;--s:.58;--d:12s;--dx:8px;--dy:-6px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:24%;--y:42%;--s:.80;--d:10s;--dx:12px;--dy:7px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:46%;--y:33%;--s:.62;--d:14s;--dx:-9px;--dy:6px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:63%;--y:46%;--s:1.20;--d:11s;--dx:16px;--dy:-8px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:58%;--y:29%;--s:.95;--d:9s;--dx:-13px;--dy:9px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:90%;--y:52%;--s:.72;--d:13s;--dx:-10px;--dy:8px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+      <button class="gull" type="button" aria-label="海鸥" style="--x:70%;--y:62%;--s:.66;--d:8s;--dx:11px;--dy:-7px">
+        <svg viewBox="0 0 64 30" aria-hidden="true" focusable="false"><g><path d="M3 24 Q17 3 32 15 Q47 3 61 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></g></svg>
+      </button>
+    </div>
+
+    <div class="wrap hero-inner">
+      <div>
+        <h1><span class="zh">栗鸥</span> <span class="latin">Lio</span></h1>
+        <p class="lede">你好，我是栗鸥，计算机专业在读学生。</p>
+      </div>
+
+      <div>
+        <p class="hero-hint">点一下海鸥 · 它们会飞走，过一会儿再飞回来</p>
+        <div class="rule" role="presentation"></div>
+        <!-- 底部站点索引：首屏不滚动，所以导航在这里再给一份，
+             访客不用抬头也能看到站里有什么。 -->
+        <nav class="site-index" aria-label="站点索引">
+          <a href="articles.html"><b>文章</b><span>写下的一些东西</span></a>
+          <a href="gallery.html"><b>相册</b><span>抬头拍的照片</span></a>
+          <a href="about.html"><b>关于</b><span>我是谁、在学什么</span></a>
+          <a href="contact.html"><b>联系</b><span>在 GitHub 上找我</span></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+// 点击海鸥：飞走 → 换个位置 → 飞回来。
+// 开启「减少动态效果」时不做动画，直接瞬移（避免无意义的位移）。
+(function () {
+  var gulls = [].slice.call(document.querySelectorAll('.gull'));
+  if (!gulls.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  gulls.forEach(function (gull) {
+    gull.addEventListener('click', function () {
+      // 落点避开左上角的名字区域；大海鸥只在自己那片天空里换位置，
+      // 否则它会随机飞到名字上面挡住字。
+      var lead = gull.classList.contains('gull--lead');
+      var x = (lead ? 68 + Math.random() * 22 : 18 + Math.random() * 72).toFixed(1);
+      var y = (lead ? 24 + Math.random() * 26 : 32 + Math.random() * 32).toFixed(1);
+
+      if (reduce.matches) {
+        gull.style.setProperty('--x', x + '%');
+        gull.style.setProperty('--y', y + '%');
+        return;
+      }
+      if (gull.classList.contains('away')) return;
+
+      gull.classList.add('away');
+      window.setTimeout(function () {
+        gull.style.setProperty('--x', x + '%');
+        gull.style.setProperty('--y', y + '%');
+        // 摘掉 away 之后，基础样式里的入场动画会重新播放一次 ——
+        // 所以"飞回来"不需要单独写一个返回动画，行为也统一。
+        gull.classList.remove('away');
+      }, 880);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

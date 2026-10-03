@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers 静态资源部署配置
+  // 部署：npx wrangler deploy
+  "name": "lio-homepage",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    // 站点就在仓库根目录。哪些文件不上传由 .assetsignore 决定。
+    "directory": "./"
+  }
+}
