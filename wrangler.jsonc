@@ -1,7 +1,12 @@
 {
   // Cloudflare Workers 静态资源部署配置
   // 部署：npx wrangler deploy
-  "name": "lio-homepage",
+  //
+  // ⚠️ name 必须和控制台里的 Worker 名一致（theliou-home）。
+  //    在控制台用 Git 集成创建的项目，构建时 Cloudflare 会用项目名覆盖这里的值，
+  //    所以线上一直是对的；但如果你在本机直接跑 wrangler deploy，
+  //    用的就是这个 name —— 写错会凭空多出一个同名不同的 Worker。
+  "name": "theliou-home",
   "compatibility_date": "2026-10-01",
   "assets": {
     // 站点就在仓库根目录。哪些文件不上传由 .assetsignore 决定。
