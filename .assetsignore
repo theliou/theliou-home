@@ -10,6 +10,10 @@
 .gitattributes
 node_modules/
 
+# ── wrangler 本地状态（本地跑 dev 时会生成，里面有 sqlite 和临时打包产物）──
+.wrangler/
+.dev.vars
+
 # ── 仓库说明与部署配置 ──
 README.md
 .assetsignore

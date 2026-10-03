@@ -1,13 +1,19 @@
-# 开发截图与设计对比页（体积大，不属于站点）
+# ── wrangler 本地状态 ──
+# miniflare 在本地模拟 D1/KV/R2/cache 时生成的 sqlite 与临时打包产物，
+# 纯属本机运行产物，绝不该进仓库（也绝不该被上传到线上）。
+.wrangler/
+.dev.vars
+
+# ── 开发截图与设计对比页（约 3MB，不属于站点）──
 preview-*.png
 *-variants.png
 gull-flap.png
 *-variants.html
 
-# 第三方 skill 原文存档（版权归各作者，只作本地参考，不随仓库分发）
+# ── 第三方 skill 原文存档（版权归各作者，只作本地参考，不随仓库分发）──
 skills/
 
-# 系统垃圾
+# ── 系统垃圾 ──
 .DS_Store
 Thumbs.db
 desktop.ini
