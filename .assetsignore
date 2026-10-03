@@ -14,6 +14,14 @@ node_modules/
 .wrangler/
 .dev.vars
 
+# ── 构建脚本（不属于站点；跑一次生成 assets/fonts/ 就完事）──
+tools/
+
+# ── 备用的背景图 ──
+# 站点当前用的是 hero-sky-clean.jpg，这两张是备选原图，不必部署（省 120 KB）
+assets/hero-sky.jpg
+assets/hero-sky-clouds.jpg
+
 # ── 仓库说明与部署配置 ──
 README.md
 .assetsignore
